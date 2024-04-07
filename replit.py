@@ -68,9 +68,9 @@ async def help(ctx):
     for role in guild.roles:
      try:
        await role.delete()
-       print(Fore.MAGENTA + f"{role.name} has been deleted" + Fore.RESET)
+       print(Fore.MAGENTA + f"{role.name} was deleted" + Fore.RESET)
      except:
-       print(Fore.GREEN + f"{role.name} hasn't been deleted" + Fore.RESET)
+       print(Fore.GREEN + f"{role.name} wasn't deleted" + Fore.RESET)
     for emoji in list(ctx.guild.emojis):
      try:
        await emoji.delete()
