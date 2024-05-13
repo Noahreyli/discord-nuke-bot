@@ -6,7 +6,6 @@ from colorama import Fore, Style
 import asyncio
 import os
 
-
 SPAM_CHANNEL =  [""]
 SPAM_MESSAGE = [""]
 
