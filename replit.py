@@ -6,13 +6,13 @@ from colorama import Fore, Style
 import asyncio
 import os
 
-Token = ""
-Channel = [""]
-Message = [""]
-
 bot = commands.Bot(command_prefix="!")
-
 bot.remove_command("help")
+
+token = ""
+
+channel_names = [""]
+message_names = [""]
 
 @bot.event
 async def on_ready():
@@ -27,7 +27,7 @@ async def on_ready():
 
 
  ''')
-   await bot.change_presence(activity=discord.Game(name=""))
+   await bot.change_presence(activity=discord.Game(name = ""))
 
 @bot.command()
 @commands.is_owner()
